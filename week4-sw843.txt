@@ -1,0 +1,44 @@
+Grounding:
+penguin(tweety)
+bird(tweety) :- penguin(tweety)
+flies(tweety) :- bird(tweety), not ab(tweety), not -flies(tweety)
+-flies(tweety) :- penguin(tweety)
+ab(tweety) :- injured(tweety)
+flies(tweety) or -flies :- injured(tweety)
+bird(fred)
+injured(fred)
+bird(fred) :- penguin(fred)
+flies(fred) :- bird(fred), not ab(fred), not -flies(fred)
+-flies(fred) :- penguin(fred)
+ab(fred) :- injured(fred)
+flies(fred) or -flies(fred) :- injured(fred)
+
+Answer set S1: { penguin(tweety), bird(tweety), -flies(tweety), bird(fred), injured(fred), ab(fred), -flies(fred) }
+
+Reduct w.r.t. S1:
+penguin(tweety)
+bird(tweety) :- penguin(tweety)
+-flies(tweety) :- penguin(tweety)
+ab(tweety) :- injured(tweety)
+flies(tweety) or -flies(tweety) :- injured(tweety)
+bird(fred)
+injured(fred)
+bird(fred) :- penguin(fred)
+-flies(fred) :- penguin(fred)
+ab(fred) :- injured(fred)
+flies(fred) or -flies(fred) :- injured(fred)
+
+Answer set S2: { penguin(tweety), bird(tweety), -flies(tweety), bird(fred), injured(fred), ab(fred), flies(fred) }
+
+Reduct w.r.t. S2:
+penguin(tweety)
+bird(tweety) :- penguin(tweety)
+-flies(tweety) :- penguin(tweety)
+ab(tweety) :- injured(tweety)
+flies(tweety) or -flies(tweety) :- injured(tweety)
+bird(fred)
+injured(fred)
+bird(fred) :- penguin(fred)
+-flies(fred) :- penguin(fred)
+ab(fred) :- injured(fred)
+flies(fred) or -flies(fred) :- injured(fred)
